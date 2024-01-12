@@ -21,9 +21,9 @@ Restart: Restart your Spigot server to apply the changes.
 
 ## Commands
 
-- /sethologram <text>: Create a holographic display with the specified text.
-- - /sethologram "<text1>" "<text2>": Create a holographic display with multiple lines.
-- /rmhologram <id>: Remove the holographic display with the given ID.
+- `/sethologram <text>`: Create a holographic display with the specified text.
+- - `/sethologram "<text1>" "<text2>"`: Create a holographic display with multiple lines.
+- `/rmhologram <id>`: Remove the holographic display with the given ID.
 
 ## Permissions
 
