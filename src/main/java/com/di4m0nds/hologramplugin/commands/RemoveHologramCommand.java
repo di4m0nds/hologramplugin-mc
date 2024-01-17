@@ -13,7 +13,7 @@ import org.bukkit.entity.Entity;
  * 
  * This class represents the command executor for removing holograms in the Minecraft server.
  */
-public class RemoveHologramCommand implements CommandExecutor {
+public final class RemoveHologramCommand implements CommandExecutor {
 
   /**
    * Executes the hologram deletion command.
@@ -30,7 +30,7 @@ public class RemoveHologramCommand implements CommandExecutor {
       return true;
     }
 
-    Player player = (Player) sender;
+    final Player player = (Player) sender;
 
     if (args.length == 0) {
         player.sendMessage("§c§l\u26D4 §r§cPlease provide a hologram ID. Usage: /rmholo <hologramID>");

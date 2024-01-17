@@ -24,7 +24,7 @@ public final class HologramClickListener implements Listener {
     // Check if the clicked entity is an ARMOR_STAND and has the hologramId tag
     if (clickedEntity instanceof ArmorStand) {
       final ArmorStand armorStand = (ArmorStand) clickedEntity;
-      final armorStandID = armorStand.getEntityId();
+      final float armorStandID = armorStand.getEntityId();
       player.sendMessage("§a§l\u2705 §r§aYou interacted with a hologram (ID: #§e§l" + armorStandID + "§a).");
     }
   }

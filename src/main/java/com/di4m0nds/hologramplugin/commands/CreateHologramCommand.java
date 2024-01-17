@@ -21,18 +21,16 @@ import org.bukkit.ChatColor;
  * 
  * This class represents the command executor for creating holograms in the Minecraft server.
  */
-public class CreateHologramCommand implements CommandExecutor {
+public final class CreateHologramCommand implements CommandExecutor {
 
-  private double lineSize;
-  private HologramPlugin plugin;
+  private final HologramPlugin plugin;
 
   /**
    * Constructs a HologramCommand instance with a specified line size.
    * 
    * @param lineSize (double) Line size for the space of each line.
    */
-    public CreateHologramCommand(double lineSize, HologramPlugin plugin) {
-      this.lineSize = lineSize;
+    public CreateHologramCommand(HologramPlugin plugin) {
       this.plugin = plugin;
   }
   
@@ -51,7 +49,7 @@ public class CreateHologramCommand implements CommandExecutor {
     if (!(sender instanceof Player)) {
       return true;
     }
-    Player player = (Player) sender;
+    final Player player = (Player) sender;
 
     if (args.length == 0) {
       player.sendMessage("§c§lOops! It looks like you forgot something...");
@@ -61,8 +59,8 @@ public class CreateHologramCommand implements CommandExecutor {
       return true;
     }
 
-    String text = String.join(" ", args);
-    String[] splitted = text.split("\"");
+    final String text = String.join(" ", args);
+    final String[] splitted = text.split("\"");
     List<String> lines = new ArrayList<String>();
 
     for (String splittedItem : splitted) {
@@ -72,11 +70,7 @@ public class CreateHologramCommand implements CommandExecutor {
     }
 
     //double jump = this.lineSize;
-    double jump = (this.plugin.getConfig().get("initial-position") != null)
-        ? Double.valueOf(
-            this.plugin.getConfig().get("initial-position").toString()
-          )
-        : lineSize;
+    double jump = this.plugin.getInitialPositionY(this.plugin);
 
     for (int i = 1; i <= lines.size(); i++) {
       jump = createHologramEntity(player, lines, i, jump);
@@ -95,28 +89,19 @@ public class CreateHologramCommand implements CommandExecutor {
    * @return (double) The updated vertical displacement for the next holographic line.
    */
   private double createHologramEntity(Player player, List<String> lines, int index, double jump) {
-    String pointingString = lines.get(index -1);
+    final String pointingString = lines.get(index -1);
 
-    ArmorStand line = (ArmorStand) player.getWorld().spawnEntity(
+    final ArmorStand line = (ArmorStand) player.getWorld().spawnEntity(
       player.getLocation().add(0, -(jump), 0),
       EntityType.ARMOR_STAND
     );
 
-    // jump += this.lineSize; 
-    jump += (this.plugin.getConfig().get("space-between-lines") != null)
-        ? Double.valueOf(
-            this.plugin.getConfig().get("space-between-lines").toString()
-          )
-        : lineSize;
+    jump = this.plugin.getSpaceBetweenLinesY(this.plugin);
 
     line.setVisible(false);
     line.setCustomNameVisible(true);
     line.setGravity(false);
     line.setCustomName(pointingString.replaceAll("&", "§"));
-
-    // float yaw = 45.5f;
-    // float pitch = 90.0f;
-    // line.setRotation(yaw, pitch);
 
     player.sendMessage(
       ChatColor.YELLOW + "Hologram ID: " +

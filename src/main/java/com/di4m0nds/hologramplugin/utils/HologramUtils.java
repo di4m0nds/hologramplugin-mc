@@ -12,15 +12,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-public class HologramUtils {
+public final class HologramUtils {
   public static ArmorStand findHologramEntityByTag(Player player, String hologramId) {
     for (Entity entity : player.getWorld().getEntities()) {
       if (entity.getType() == EntityType.ARMOR_STAND) {
-        ArmorStand armorStand = (ArmorStand) entity;
+        final ArmorStand armorStand = (ArmorStand) entity;
   
         // Retrieve the hologramId from the metadata
-        PersistentDataContainer dataContainer = armorStand.getPersistentDataContainer();
-        String storedHologramId = dataContainer.get(
+        final PersistentDataContainer dataContainer = armorStand.getPersistentDataContainer();
+        final String storedHologramId = dataContainer.get(
           new NamespacedKey(HologramPlugin.getInstance(), "hologramId"),
           PersistentDataType.STRING
         );
