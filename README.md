@@ -1,4 +1,5 @@
 # HologramPlugin
+[![Java CI with Maven](https://github.com/di4m0nds/hologramplugin-mc/actions/workflows/maven.yml/badge.svg)](https://github.com/di4m0nds/hologramplugin-mc/actions/workflows/maven.yml)
 
 HologramPlugin is a custom Minecraft Spigot plugin that enhances your server with holographic display functionalities.
 
