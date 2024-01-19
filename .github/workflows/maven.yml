@@ -46,9 +46,3 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
-
-    - name: Copy built artifact to Spigot server plugins directory
-      run: ./target/hologramplugin-1.0.0-SNAPSHOT.jar ../../spigot-server/plugins/HologramPlugin-1.0.0-SNAPSHOT.jar
-
-    - name: Restart Spigot server
-      run: cd ../../spigot-server/ && ./start-spigot.sh
