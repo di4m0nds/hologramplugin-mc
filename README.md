@@ -40,6 +40,7 @@ If you wish to contribute to the development of this plugin, please fork the rep
 
 ## Video
 
-[![Watch the video](https://vumbnail.com/1092750166.jpg)](https://vimeo.com/1092750166)
+[![Watch the video](https://vumbnail.com/1092750166.jpg)](https://vimeo.com/1092750166/32bfde696c?ts=0&share=copy)
+
 
 Happy gaming!
