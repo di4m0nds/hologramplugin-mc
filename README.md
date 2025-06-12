@@ -3,8 +3,6 @@
 
 HologramPlugin is a custom Minecraft Spigot plugin that enhances your server with holographic display functionalities.
 
-[DEMO](https://www.youtube.com/watch?v=CPptjQ2Ornw)
-
 ## Overview
 
 This plugin empowers players to create and manage holographic displays within the Minecraft world. With HologramPlugin, you can add captivating visual elements to your server, enhancing the gaming experience.
@@ -39,5 +37,9 @@ The configuration file config.yml allows you to customize various aspects of hol
 ## Development
 
 If you wish to contribute to the development of this plugin, please fork the repository and submit a pull request. Your contributions are welcome!
+
+## Video
+
+[![Watch the video](https://vumbnail.com/1092750166.jpg)](https://vimeo.com/1092750166)
 
 Happy gaming!
